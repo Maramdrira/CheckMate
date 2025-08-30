@@ -10,8 +10,7 @@ import 'package:wings_and_things/screens/prayer_screen.dart';
 import 'package:wings_and_things/screens/theme_selector_screen.dart';
 import 'package:wings_and_things/widgets/task_tile.dart';
 import 'package:wings_and_things/widgets/custom_bottom_nav.dart';
-import '../models/hydration.dart';
-import '../models/prayer.dart';
+
 import '../models/task.dart';
 import 'package:wings_and_things/widgets/theme_background.dart';
 import '../services/LanguageService.dart';

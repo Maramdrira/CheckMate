@@ -1,7 +1,6 @@
 // lib/screens/tasbih_screen.dart
 import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
-import '../services/LanguageService.dart';
 
 /// Plain data-model – unchanged
 class Tasbih {

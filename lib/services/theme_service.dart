@@ -7,48 +7,37 @@ class ThemeService with ChangeNotifier {
   static const String _themeKey = 'selected_theme';
   late String _currentThemeName;
 
-  /* ------------------------------------------------------------------
-     FULL & SIMPLE VARIANTS FOR EVERY THEME
-  ------------------------------------------------------------------ */
+
   final Map<String, ThemeData> _themes = {
     'Light Mode (simple)': _lightModeV2(full: false),
-    /* ---------- DARK & COSMIC ---------- */
     'Dark Mode': _darkMode(full: true),
     'Galaxy Astronomy': _astronomy(full: true),
 
-    /* ---------- PASTEL SUNSET ---------- */
     'Golden Paw': _sunsetDunes(full: true),
 
-    /* ---------- ROSE & GOLD ---------- */
     'Rose Gold Glam': _roseGold(full: true),
 
-    /* ---------- SOFT FLORALS ---------- */
     'Lavender Mist': _softLavender(full: true),
     'Blush Bloom': _girlyButterflyV2(full: true),
     'Cotton Candy': _cottonCandy(full: true),
 
-    /* ---------- FRESH GREENS ---------- */
     'Kiwi Breeze': _greenKiwiV2(full: true),
 
-    /* ---------- SKY BLUES ---------- */
     '3 Bears': _blueSkyV2(full: true),
     'Flower Blue': _lightModeV2(full: true),
 
-    /* ---------- PLAYFUL ---------- */
     'Bata': _kids(full: true),
     'SpongeBob': _spongebob(full: true),
     'Gumball': _gumbul(full: true),
 
 
 
-    /* ---------- NEW THEMES ---------- */
 
     'Harry Potter': _harryPotter(full: true),
     'Palestine': _palestine(full: true),
     'Engineering': _engineering(full: true),
-    'Miraculous Ladybug': _miraculousLadybug(full: true), // Added Miraculous theme
+    'Miraculous Ladybug': _miraculousLadybug(full: true), 
 
-        /* ---------- HEROES ---------- */
     'BatMan': _batman(full: true),
     'SpiderMAn': _spiderMan(full: true),
     'Arcane': _arcane(full: true),
@@ -86,22 +75,19 @@ class ThemeService with ChangeNotifier {
       name.contains('Deep') ||
       name.contains('Amethyst') ||
       name.contains('Astronomy') ||
-      name.contains('Marauder') || // Harry Potter theme is dark
-      name.contains('Numerical'); // Numerical theme is dark
+      name.contains('Marauder') || 
+      name.contains('Numerical'); 
 
-  /* ------------------------------------------------------------------
-     BUILDERS  (each accepts {bool full} to toggle image)
-  ------------------------------------------------------------------ */
+
   static BackgroundExtension? _bg(String? path, double opacity) =>
       path == null ? null : BackgroundExtension(image: path, opacity: opacity);
 
-  /* ---- DARK ---- */
   static ThemeData _darkMode({bool full = true}) {
     const scaffold = Color(0xFF1A1A1C);
     const appBar = Color(0xFF252529);
     const card = Color(0x22FFFFFF);
     const text = Color(0xFFE8E6E3);
-    const title = Color(0xFFB0A99F); // warm greige
+    const title = Color(0xFFB0A99F); 
 
     return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: scaffold,
@@ -681,43 +667,7 @@ class ThemeService with ChangeNotifier {
         ],
       );
 
-  /* ------------------------------------------------------------------
-     NEW THEMES
-  ------------------------------------------------------------------ */
 
-  /* ----------  Marauder's Map (Harry Potter) Theme  ---------- */
-    static ThemeData _maraudersMap({bool full = true}) => ThemeData(
-        primaryColor: const Color.fromARGB(255, 87, 50, 2), // Palestinian green
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        cardColor: Colors.white,
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Color(0xFF000000)),
-          bodyMedium: TextStyle(color: Color(0xFF000000)),
-          titleLarge:
-              TextStyle(color: Color(0xFF000000), fontWeight: FontWeight.bold),
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 116, 76, 4),
-          foregroundColor: Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
-          ),
-        ),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color(0xFFCE1126), // Palestinian red
-          foregroundColor: Colors.white,
-        ),
-        colorScheme: ColorScheme.light(
-          primary: const Color.fromARGB(255, 122, 73, 0),
-          secondary: const Color(0xFFCE1126),
-          surface: Colors.white,
-          background: const Color(0xFFF5F5F5),
-        ),
-        extensions: [
-          if (full) _bg('assets/themes/marauders_map.jpg', 0.5)!,
-        ],
-      );
 
   /* ----------  Harry Potter Theme  ---------- */
   static ThemeData _harryPotter({bool full = true}) => ThemeData(
@@ -861,9 +811,8 @@ static ThemeData _miraculousLadybug({bool full = true}) => ThemeData(
 }
 
 
-/* ------------------------------------------------------------------
-   SINGLE UNIVERSAL EXTENSION
------------------------------------------------------------------- */
+
+
 class BackgroundExtension extends ThemeExtension<BackgroundExtension>
     implements BackgroundData {
   @override

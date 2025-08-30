@@ -7,13 +7,8 @@ import 'package:wings_and_things/services/theme_service.dart';
 import 'models/task.dart';
 import 'models/hydration.dart';
 import 'models/prayer.dart';
-import 'screens/home_screen.dart';
-// splash screens
-import 'screens/splash/splash1.dart';
 import 'screens/splash/splash10.dart';
-import 'screens/splash/splash2.dart';
-import 'screens/splash/splash3.dart';
-import 'screens/splash/splash4.dart';
+
 import 'screens/splash/splash5.dart';
 import 'screens/splash/splash6.dart';
 import 'screens/splash/splash7.dart';
@@ -53,7 +48,7 @@ class _MyAppState extends State<MyApp> {
 Widget _randomSplash() {
   try {
     final rng = Random();
-    switch (rng.nextInt(7)) { // Changed to 5 to include the new splash
+    switch (rng.nextInt(7)) { 
       case 0:
         return const Splash5();
       case 1:
@@ -67,18 +62,16 @@ Widget _randomSplash() {
       case 5:
         return const Splash10();
       default:
-        return const Splash5(); // New photo-based splash
+        return const Splash5();
     }
   } catch (e) {
     debugPrint('Splash screen error: $e');
-    // Fallback to the photo splash if any error occurs
     return const Splash5();
   }
 }
 
   @override
   Widget build(BuildContext context) {
-    // inside build
 return MultiProvider(
   providers: [
     ChangeNotifierProvider.value(value: _themeService),
